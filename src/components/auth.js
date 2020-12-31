@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import Login from "./login.js";
+import loginImg from "../../static/assets/images/login.jpg";
 
 
 export default class Auth extends Component {

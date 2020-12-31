@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 import Navbar from "./navbar.js";
 import PageContent from "./page-content.js";
+import Auth from "./auth.js";
 
 export default class App extends Component {
   render() {
@@ -10,6 +11,9 @@ export default class App extends Component {
       <div className='app'>
         <Navbar/>
         <PageContent/>
+        <div className='app-auth-wrapper'>
+        <Auth/>
+        </div>
       </div>
     );
   }
