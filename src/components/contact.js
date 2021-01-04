@@ -14,8 +14,10 @@ export default class Contact extends Component {
     render () {
         return (
             <div className='contact-wrapper'>
-                <h3>Contact Information here</h3>
-                
+                <h3>Want to contact Parker?</h3>
+                  <p> Please fill out the information below
+                   to inquire about wildlife locations 
+                   or to order prints! </p>
             </div>
         )};
 }
