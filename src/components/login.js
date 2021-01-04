@@ -7,7 +7,7 @@ export default class Login extends Component {
         super(props);
 
         this.state = {
-            email: "",
+            username: "",
             password: "",
             errorText: ""
         };
@@ -24,10 +24,10 @@ export default class Login extends Component {
     }
 
     handleSubmit(event) {
-        axios.post("",
+        axios.post("API_KEY",
         {
           client: {
-              email: this.state.email,
+              username: this.state.username,
               password: this.state.password
           }  
         },
@@ -38,17 +38,17 @@ export default class Login extends Component {
              this.props.handleSuccessfullAuth();
           } else {
               this.setState({
-                  errorText: "Wrong email or password"
+                  errorText: "Wrong username or password"
               });
               this.props.handleUnsuccessfullAuth();
           }
         })
-        // .catch(error => {
-        //     this.setState({
-        //         errorText: "An error occured"
-        //     });
-        //     this.props.handleUnsuccessfullAuth();
-        // });
+        .catch(error => {
+            this.setState({
+                errorText: "An error occured"
+            });
+            this.props.handleUnsuccessfullAuth();
+        });
         
     
         event.preventDefault();
@@ -63,10 +63,10 @@ export default class Login extends Component {
                
                 <form onSubmit={this.handleSubmit}>
                     <input 
-                      type="email"
-                      name="email"
-                      placeholder="Your email"
-                      value={this.state.email}
+                      type="username"
+                      name="username"
+                      placeholder="Your username"
+                      value={this.state.username}
                       onChange={this.handleChange}
                     />
 

@@ -1,4 +1,14 @@
 * {
-    background-color: $celadon;
+    
     font-family: 'Russo One', sans-serif;
+
+
+body {
+    background-image: url(/assets/images/cool-background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: $celadon;
+   }
+
+
 }

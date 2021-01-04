@@ -12,7 +12,7 @@ export default class Home extends Component {
     render() {
         return(
             <div className='home-wrapper'>
-                <h3>Parker James Photography</h3>
+                <h3></h3>
             </div>
         )};
 }
