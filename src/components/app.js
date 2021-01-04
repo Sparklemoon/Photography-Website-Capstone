@@ -54,7 +54,7 @@ export default class App extends Component {
   }
 
     checkLoginStatus() {
-      return axios.get("API_KEY", { 
+      return axios.get("postgres://jcqydfrmcbswmt:23ea87404df287326384c16d85b8a77b11851715d05589e9253ccd62d0e11eaf@ec2-35-168-77-215.compute-1.amazonaws.com:5432/d338e1d5sd0shc", { 
         withCredentials: true 
       })
       .then(response => {

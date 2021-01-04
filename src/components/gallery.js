@@ -8,6 +8,10 @@ export default class Gallery extends Component {
         this.state = {
 
         }
+        document.getElementById("blocks").style.display = "none";
+        document.getElementById("my-gallery").style.display ="";
+        document.getElementById("contacts").style.display = "none";
+          
     }
     render() {
         return(
