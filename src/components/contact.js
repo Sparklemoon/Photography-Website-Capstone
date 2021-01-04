@@ -7,10 +7,9 @@ export default class Contact extends Component {
         this.state = {
 
         }
-        document.getElementById("contacts").style.display = "";
         document.getElementById("blocks").style.display = "none";
         document.getElementById("my-gallery").style.display = "none";
-        
+        document.getElementById("contacts").style.display = "";
     }
     render () {
         return (
