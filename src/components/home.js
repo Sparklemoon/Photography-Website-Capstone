@@ -9,9 +9,7 @@ export default class Home extends Component {
         this.state = {
 
         }
-        // const qrAlligator = document.createElement("img");
-        // qrAlligator.src = "alligator.jpg";
-        // document.body.appendChild(qrAlligator);
+
         document.getElementById("blocks").style.display ="";
         document.getElementById("my-gallery").style.display = "none";
         document.getElementById("contacts").style.display = "none";

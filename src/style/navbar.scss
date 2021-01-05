@@ -1,7 +1,8 @@
 .nav-wrapper {
     display: flex;
     justify-content: space-between;
-    padding: 30px;
+    padding: 5px;
+    
 
     .right-side {
         a {
@@ -22,7 +23,7 @@
     }
 
     .nav-link-wrapper {
-        height: 22px;
+        height: 10px;
         border-bottom: 1px solid transparent;
         transition: 0.5s ease-in-out;
         margin-right: 20px;
