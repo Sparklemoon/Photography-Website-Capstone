@@ -17,3 +17,10 @@
         background-image: url(/assets/images/cool-background.png);
     }
 }
+
+@media (max-width:480px) {
+    .contact-img {
+        width: 100%;
+        height: auto;
+    }
+}
