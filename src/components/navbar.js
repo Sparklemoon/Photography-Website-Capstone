@@ -17,7 +17,7 @@ const Navbar = props => {
 
   const handleSignOut = () => {
     axios
-      .delete("", { withCredentials: true })
+      .delete("https://capstone-api-myra-james.herokuapp.com/user/delete", { withCredentials: true })
       .then(response => {
         if (response.status === 200) {
           props.history.push("/");

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from  "react-router-dom"
 import axios from 'axios';
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faSignOutAlt, faEdit } from "@fortawesome/free-solid-svg-icons";
+
+
 
 
 
@@ -12,12 +11,13 @@ import Navbar from "./navbar.js";
 import Home from './home.js';
 import Gallery from './gallery.js';
 import Contact from './contact.js';
-import PageManager from './page/page-manager';    
-import PageDetail from './page/page-detail';
+import PageManager from './page/page-manager.js';    
+import Upload from './page/page-upload.js';
 import Auth from "./auth.js";
 import noMatch from "./no-match";
 
-library.add(faTrash, faSignOutAlt, faEdit);
+
+
 
 
 export default class App extends Component {
@@ -28,6 +28,7 @@ export default class App extends Component {
       loggedInStatus: "NOT_LOGGED_IN"
     };
 
+    
     this.handleSuccessfullLogin = this.handleSuccessfullLogin.bind(this);
     this.handleUnsuccessfullLogin = this.handleUnsuccessfullLogin.bind(this);
     this.handleSuccessfullLogout = this.handleSuccessfullLogout.bind(this);
@@ -53,8 +54,10 @@ export default class App extends Component {
     });
   }
 
+    
+
     checkLoginStatus() {
-      return axios.get("postgres://jcqydfrmcbswmt:23ea87404df287326384c16d85b8a77b11851715d05589e9253ccd62d0e11eaf@ec2-35-168-77-215.compute-1.amazonaws.com:5432/d338e1d5sd0shc", { 
+      return axios.get("https://capstone-api-myra-james.herokuapp.com/user/get", { 
         withCredentials: true 
       })
       .then(response => {
@@ -89,6 +92,7 @@ export default class App extends Component {
       }
 
   render() {
+    
     return (
       <div className='container'>
       <Router>
@@ -123,7 +127,7 @@ export default class App extends Component {
               <Route 
                 exact 
                 path="/page/:slug" 
-                component={PageDetail} 
+                component={Upload} 
               />
               <Route component={noMatch} />
               
