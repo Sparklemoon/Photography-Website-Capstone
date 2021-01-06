@@ -2,22 +2,13 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from  "react-router-dom"
 import axios from 'axios';
 
-
-
-
-
-
 import Navbar from "./navbar.js";
 import Home from './home.js';
 import Gallery from './gallery.js';
-import Contact from './contact.js';
-import PageManager from './page/page-manager.js';    
-import Upload from './upload.js';
+import Contact from './contact.js';   
 import Auth from "./auth.js";
-import noMatch from "./no-match";
-
-
-
+import Upload from "./upload.js";
+import NoMatch from "./no-match";
 
 
 export default class App extends Component {
@@ -28,37 +19,32 @@ export default class App extends Component {
       loggedInStatus: "NOT_LOGGED_IN"
     };
 
-    
-    this.handleSuccessfullLogin = this.handleSuccessfullLogin.bind(this);
-    this.handleUnsuccessfullLogin = this.handleUnsuccessfullLogin.bind(this);
-    this.handleSuccessfullLogout = this.handleSuccessfullLogout.bind(this);
+    this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
+    this.handleUnsuccessfulLogin = this.handleUnsuccessfulLogin.bind(this);
+    this.handleSuccessfulLogout = this.handleSuccessfulLogout.bind(this);
   }
 
-  handleSuccessfullLogin() {
+  handleSuccessfulLogin() {
     this.setState({
       loggedInStatus: "LOGGED_IN"
     });
   }
 
-  
-
-  handleUnsuccessfullLogin() {
+  handleUnsuccessfulLogin() {
     this.setState({
       loggedInStatus: "NOT_LOGGED_IN"
     });
   }
 
-  handleSuccessfullLogout() {
+  handleSuccessfulLogout() {
     this.setState({
       loggedInStatus: "NOT_LOGGED_IN"
     });
   }
 
-    
-
-    checkLoginStatus() {
-      return axios.post('/user/authentication', { 
-        withCredentials: true 
+  checkLoginStatus() {
+    return axios.post("https://capstone-api-myra-james.herokuapp.com/user/authentication", {
+        
       })
       .then(response => {
         const loggedIn = response.data.logged_in;
@@ -79,62 +65,54 @@ export default class App extends Component {
       .catch(error => {
         console.log("Error", error);
       });
-    }
+  }
 
   componentDidMount() {
     this.checkLoginStatus();
   }
 
   authorizedPages() {
-    return [
-        <Route key="page-manager" path="/page-manager" component={PageManager} />
-        ];  
-      }
+    return [<Route path="/upload" component={Upload} />];
+  }
 
   render() {
-    
     return (
-      <div className='container'>
-      <Router>
+      <div className="app-container">
+         <Router>
           <div>
-          
-           <Navbar 
-            loggedInStatus={this.state.loggedInStatus}
-            handleSuccessfullLogout={this.state.handleSuccessfullLogout} 
+            <Navbar
+              loggedInStatus={this.state.loggedInStatus}
+              handleSuccessfulLogout={this.handleSuccessfulLogout}
             />
 
-            
+                <h2>{this.state.loggedInStatus}</h2>
+
             <Switch>
               <Route exact path="/" component={Home} />
 
-              <Route 
-              path="/auth" 
-              render={props => (
-                <Auth 
-                  {...props}
-                  handleSuccessfullLogin={this.handleSuccessfullLogin}
-                  handleUnsuccessfullLogin={this.handleUnsuccessfullLogin}
-                />
-              )}
-            />
+          <Route
+            path="/auth"
+            render={props => (
+              <Auth
+                {...props}
+                handleSuccessfulLogin={this.handleSuccessfulLogin}
+                handleUnsuccessfulLogin={this.handleUnsuccessfulLogin}
+              />
+            )}
+          />
 
               <Route path="/gallery" component={Gallery} />
               <Route path="/contact" component={Contact} />
-              {this.state.loggedInStatus ==="LOGGED_IN" ? (
+              {this.state.loggedInStatus === "LOGGED_IN" ? (
                 this.authorizedPages()
-                ) :null}
+              ) : null}
               
-              <Route 
-                exact 
-                path="/page/:slug" 
-                component={Upload} 
-              />
-              <Route component={noMatch} />
-              
+            <Route component={NoMatch} />
             </Switch>
-          </div>
-      </Router> 
-     </div>
+        </div>
+        </Router>
+      </div>
     );
   }
 }
+

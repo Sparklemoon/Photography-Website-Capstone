@@ -16,7 +16,7 @@ const Navbar = props => {
 
   const handleSignOut = () => {
     axios
-      .delete("/user", { withCredentials: true })
+      .delete("https://capstone-api-myra-james.herokuapp.com/user")
       .then(response => {
         if (response.status === 200) {
           props.history.push("/");
@@ -50,9 +50,7 @@ const Navbar = props => {
           </NavLink>
         </div>
 
-        {props.loggedInStatus === "LOGGED_IN" ? (
-          dynamicLink("/page-manager", "Page Manager")
-        ) : null}
+
       </div>
 
       <div className="right-side">
