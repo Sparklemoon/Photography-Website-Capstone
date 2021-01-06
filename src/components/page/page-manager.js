@@ -16,7 +16,7 @@ export default class PageManager extends Component {
     getBackend() {
 
          axios
-           .get('https://capstone-api-myra-james.herokuapp.com/user/get', {
+           .get('/user', {
             withCredentials: true
            })
            .then(response => {
@@ -41,6 +41,3 @@ export default class PageManager extends Component {
             </div>
         )}
     }
-
-
-

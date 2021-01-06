@@ -43,7 +43,7 @@ function Upload() {
             ) 
         }
         
-        <Login/>
+        
         
         </div>
 
@@ -57,5 +57,3 @@ function Upload() {
 }
 
 export default Upload;
-
-

@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { withRouter } from "react-router";
 import { NavLink } from "react-router-dom";
 
@@ -17,7 +16,7 @@ const Navbar = props => {
 
   const handleSignOut = () => {
     axios
-      .delete("https://capstone-api-myra-james.herokuapp.com/user/delete", { withCredentials: true })
+      .delete("/user", { withCredentials: true })
       .then(response => {
         if (response.status === 200) {
           props.history.push("/");
@@ -60,7 +59,7 @@ const Navbar = props => {
         PARKER JAMES PHOTOGRAPHY
         {props.loggedInStatus === "LOGGED_IN" ? (
           <a onClick={handleSignOut}>
-            <FontAwesomeIcon icon="sign-out-alt" />
+            
           </a>
         ) : null}
       </div>

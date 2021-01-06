@@ -12,7 +12,7 @@ import Home from './home.js';
 import Gallery from './gallery.js';
 import Contact from './contact.js';
 import PageManager from './page/page-manager.js';    
-import Upload from './page/page-upload.js';
+import Upload from './upload.js';
 import Auth from "./auth.js";
 import noMatch from "./no-match";
 
@@ -57,7 +57,7 @@ export default class App extends Component {
     
 
     checkLoginStatus() {
-      return axios.get("https://capstone-api-myra-james.herokuapp.com/user/get", { 
+      return axios.post('/user/authentication', { 
         withCredentials: true 
       })
       .then(response => {

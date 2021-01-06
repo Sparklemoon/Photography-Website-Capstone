@@ -14,6 +14,7 @@ export default class Login extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        
     }
 
     handleChange(event) {
@@ -24,7 +25,7 @@ export default class Login extends Component {
     }
 
     handleSubmit(event) {
-        axios.post("https://capstone-api-myra-james.herokuapp.com/user/post", 
+        axios.post("/user/authentication", 
         {
           user: {
               username: this.state.username,
