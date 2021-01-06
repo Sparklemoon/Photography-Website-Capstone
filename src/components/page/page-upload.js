@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-
-
 function Upload() {
 
     const [loading, setLoading] = useState(false)
@@ -30,11 +28,6 @@ function Upload() {
 
     }
 
-    document.getElementById("blocks").style.display ="none";
-    document.getElementById("my-gallery").style.display = "none";
-    document.getElementById("contacts").style.display = "none";
-
-
     return (
         
         <div className="all-gallery-content-wrapper">
@@ -50,10 +43,10 @@ function Upload() {
             ) 
         }
         
-        
+        <Login/>
         
         </div>
-        
+
         
 
         </div>
@@ -64,3 +57,5 @@ function Upload() {
 }
 
 export default Upload;
+
+
