@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 
 
+import upload from './upload.js';
+
 
 export default class Login extends Component {
     constructor() {
@@ -33,7 +35,7 @@ export default class Login extends Component {
         event.preventDefault()
 
         
-        fetch("https//capstone-api-myra-james.herokuapp.com/user/post", {
+        fetch("http://127.0.0.1:5000/user", {
             method:"POST",
             headers: { "content-type": "application/json"},
             body: JSON.stringify({
@@ -45,7 +47,7 @@ export default class Login extends Component {
         .then(data => {
             console.log(data);
             if (data === "SUCCESS") {
-                
+                location.href = "http://localhost:3000/upload";  
             }
             else {
                 this.setState({ loginFailed: true })
