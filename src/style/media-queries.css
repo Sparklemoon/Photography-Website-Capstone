@@ -2,25 +2,28 @@
     .nav-wrapper {
         flex-direction: column;
         align-items: center;
-        height: 100%
+        height: 100%;
     }
 }
 
 @media (max-width: 480px) {
     body {
         background-image: url(/assets/images/cool-background.png);
+        height: 100%;
     }
 }
 
 @media (min-width: 481px) and (max-width: 1024px) {
     body {
         background-image: url(/assets/images/cool-background.png);
+        height: 100%;
     }
 }
 
-@media (max-width:480px) {
+@media (max-width:300px) {
     .contact-img {
-        width: 100%;
+        width: auto;
         height: auto;
+        
     }
 }
