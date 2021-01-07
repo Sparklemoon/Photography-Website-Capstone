@@ -18,8 +18,14 @@ export default class Auth extends Component {
   handleUnsuccessfulAuth() {
     this.props.handleUnsuccessfulLogin();
   }
+  
+
 
   render() {
+
+    document.getElementById("blocks").style.display ="none";
+    document.getElementById("my-gallery").style.display = "none";
+    document.getElementById("contacts").style.display = "none";
     return (
       <div className="auth-page-wrapper">
           <Login

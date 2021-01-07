@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 
+
+
+
 function Upload() {
+    document.getElementById("blocks").style.display ="none";
+    document.getElementById("my-gallery").style.display = "none";
+    document.getElementById("contacts").style.display = "none"; 
+
 
     const [loading, setLoading] = useState(false)
     const [image, setImage] = useState("")
@@ -19,6 +26,8 @@ function Upload() {
             body:data,
         })
 
+
+
         const file = await response.json()
 
         console.log(file)
@@ -27,6 +36,8 @@ function Upload() {
         setLoading(false)
 
     }
+
+
 
     return (
         
@@ -43,14 +54,14 @@ function Upload() {
             ) 
         }
         
-        
+
         
         </div>
 
         
 
         </div>
-            
+ 
     )
 
               

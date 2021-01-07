@@ -85,7 +85,7 @@ export default class App extends Component {
               handleSuccessfulLogout={this.handleSuccessfulLogout}
             />
 
-                <h2>{this.state.loggedInStatus}</h2>
+              {/* {this.state.loggedInStatus} */}
 
             <Switch>
               <Route exact path="/" component={Home} />
@@ -103,8 +103,9 @@ export default class App extends Component {
 
               <Route path="/gallery" component={Gallery} />
               <Route path="/contact" component={Contact} />
+              
               {this.state.loggedInStatus === "LOGGED_IN" ? (
-                this.authorizedPages()
+              this.authorizedPages()
               ) : null}
               
             <Route component={NoMatch} />

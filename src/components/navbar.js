@@ -48,15 +48,18 @@ const Navbar = props => {
           <NavLink to="/contact" activeClassName="nav-link-active">
             Contact
           </NavLink>
-        </div>
-      </div>
+          </div>
 
+        {props.loggedInStatus === "LOGGED_IN" ? (
+          dynamicLink("/upload", "Upload")
+         ) : null}
+        </div>
+      
+    
       <div className="right-side">
         PARKER JAMES PHOTOGRAPHY
         {props.loggedInStatus === "LOGGED_IN" ? (
-          <a onClick={handleSignOut}>
-            
-          </a>
+          <a onClick={handleSignOut}>Sign Out</a>
         ) : null}
       </div>
     </div>
