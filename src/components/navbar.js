@@ -49,8 +49,6 @@ const Navbar = props => {
             Contact
           </NavLink>
         </div>
-
-
       </div>
 
       <div className="right-side">
