@@ -25,16 +25,6 @@ export default class Login extends Component {
   handleSubmit(event) {
     event.preventDefault()
   
-// axios({
-//     method: 'POST',
-//     url:'https://capstone-api-myra-james.herokuapp.com/user/authentication',
-//     data: {
-//         username: this.state.username,
-//         password: this.state.password
-//     }
-// })
-
-    // axios.post("https://capstone-api-myra-james.herokuapp.com/user/authentication", this.state.username, this.state.password, "application/json")
 
     axios({
         method: 'post', 
