@@ -1,7 +1,11 @@
 @media (max-width: 420px) {
-
     
-   
+    body {
+    background-image: url(/assets/images/cool-background.png);
+    height: 100vh;
+    }
+
+
     .nav-wrapper {
         flex-direction: column;
         align-items: center;
@@ -19,7 +23,7 @@
 
     .contact-photos > .img {
         flex-direction: column;
-        /* align-items: center; */
+        
     }
 
 }
